@@ -11,15 +11,15 @@ public class Ticket {
             this.pago = false;
         }
 
-        int getNumero() {
+        int obterNumero() {
             return numero;
         }
 
-        double getValor() {
+        double obterValor() {
             return valor;
         }
 
-        boolean isPago() {
+        boolean jaPago() {
             return pago;
         }
 
