@@ -18,18 +18,18 @@ public class MaquinaEstacionamento {
     void emitirTicket() {
         Ticket novoTicket = new Ticket(contadorTickets);
         ticketsEmitidos.put(contadorTickets, novoTicket);
-        System.out.println("Ticket emitido: #" + contadorTickets + " - Valor: R$ " + novoTicket.getValor());
+        System.out.println("Ticket emitido: #" + contadorTickets + " - Valor: R$ " + novoTicket.obterValor());
         contadorTickets++;
     }
 
     // Recebe o pagamento de um ticket com base no número do ticket
     void pagarTicket(int numeroTicket) {
         Ticket ticket = ticketsEmitidos.get(numeroTicket);
-        if (ticket != null && !ticket.isPago()) {
+        if (ticket != null && !ticket.jaPago()) {
             ticket.pagar();
-            saldoTotal += ticket.getValor();
+            saldoTotal += ticket.obterValor();
             System.out.println("Ticket #" + numeroTicket + " foi pago.");
-        } else if (ticket != null && ticket.isPago()) {
+        } else if (ticket != null && ticket.jaPago()) {
             System.out.println("Ticket #" + numeroTicket + " já foi pago.");
         } else {
             System.out.println("Ticket #" + numeroTicket + " não encontrado.");
